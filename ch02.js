@@ -26,14 +26,14 @@ function billTheUser4(some, sales, data) {
     document.getElementById("billButton").setAttribute("disabled", "true")
 }
 
-function billTheUser5(some, sales, data){
-    billTheUser5 = function(){};
+function billTheUser5(some, sales, data) {
+    billTheUser5 = function () { };
     return
 }
 
 var billTherUser = (clicked => {
     return (some, sales, data) => {
-        if(!clicked){
+        if (!clicked) {
             clicked = true;
             window.alert("hoge")
         }
@@ -43,11 +43,22 @@ var billTherUser = (clicked => {
 const once = fn => {
     let done = false;
     return (...args) => {
-        if(!done){
+        if (!done) {
             done = true;
             fn(...args);
         }
     };
 };
 
-module.exports = {billTheUser5, once};
+const myCounter = (function (initialValue = 0) {
+    let count = initialValue;
+    return function() {
+        count++;
+        return count;
+    }
+})(77);
+
+const altSum3 = x => y => z => x + y + z
+
+
+module.exports = { billTheUser5, once , myCounter, altSum3};
