@@ -43,3 +43,47 @@ test("D", () => {
 
 const AL = range("A".codePointAt(), "Z".charCodeAt() + 1).map(x => String.fromCharCode(x))
 console.log(AL)
+
+const a = [[1, 2], [3, 4, [5, 6, 7]], 8]
+
+test("R", () => {
+    expect(a.flat()).toEqual([1, 2, 3, 4, [5, 6, 7], 8])
+})
+
+test("T", () => {
+    expect(a.flat(Infinity)).toEqual([1, 2, 3, 4, 5, 6, 7, 8])
+})
+
+const apiAnswer = [
+    {
+        country: "AR",
+        name: "Arzentine",
+        states: [{
+            state: "BBB",
+            name: "benos",
+            cities: [{ city: 1, name: "lincoin" }]
+        }]
+    },
+    {
+        country: "QW",
+        name: "hogehoge",
+        states: [{
+            state: "AAA",
+            name: "qwety",
+            cities: [{ city: 2, name: "fufufu" }]
+        }]
+    }
+]
+
+const b = apiAnswer
+    .map(x => x.states)
+    .flat()
+    .map(y => y.cities)
+    .flat()
+
+
+test("H", () => {
+    expect(b).toEqual([{ city: 1, name: "lincoin" }, { city: 2, name: "fufufu" }])
+}
+)
+
