@@ -8,3 +8,19 @@ Array.prototype.average = function () {
 test("A", () => {
     expect(f.mySum).toBe(163)
 });
+
+let cache = [];
+const fib = (n) => {
+    if (cache[n] === undefined) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        } else {
+            return fib(n - 2) + fib(n - 1)
+        }
+    }
+    return cache[n];
+}
+
+console.log(fib(10))
