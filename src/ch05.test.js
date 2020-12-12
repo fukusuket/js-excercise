@@ -1,5 +1,3 @@
-const {TestScheduler} = require('jest');
-
 const {test, expect} = require('@jest/globals');
 
 const reverseString = (str) => {
