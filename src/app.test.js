@@ -1,15 +1,15 @@
-const { test, expect } = require('@jest/globals');
+const {test, expect} = require('@jest/globals');
 const sum = require('./app');
 
-test("A", () => {
-    expect(sum(1, 2)).toBe(3);
+test('A', () => {
+  expect(sum(1, 2)).toBe(3);
 });
 
-test("B", () => {
-    expect(2 + 2).toBe(4);
+test('B', () => {
+  expect(2 + 2).toBe(4);
 });
 
-test("C", () => {
+test('C', () => {
     const data = { one: 1 };
     data['two'] = 2;
     expect(data).toEqual({ one: 1, two: 2 })
@@ -48,5 +48,5 @@ test("l", () => {
 })
 
 test("k", () => {
-    expect(() => {throw new Error("")}).toThrow();
+    expect(() => { throw new Error("") }).toThrow();
 })
