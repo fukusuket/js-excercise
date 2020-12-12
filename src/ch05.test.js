@@ -42,9 +42,6 @@ test('D', () => {
   expect(from2to6).toEqual([2, 3, 4, 5, 6]);
 });
 
-const AL = range('A'.codePointAt(), 'Z'.charCodeAt() + 1).map((x) => String.fromCharCode(x));
-console.log(AL);
-
 const a = [[1, 2], [3, 4, [5, 6, 7]], 8];
 
 test('R', () => {

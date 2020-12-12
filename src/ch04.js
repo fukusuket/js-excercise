@@ -5,7 +5,4 @@ const sumAndLog = (x, y) => {
 };
 const mySum = myArray.reduce(sumAndLog, 0);
 
-const average = (arr) => arr.reduce(sumAndLog, 0)/ arr.length;
-console.log(average(myArray));
-
 module.exports = {mySum};
