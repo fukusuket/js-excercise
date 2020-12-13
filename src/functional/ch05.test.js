@@ -16,6 +16,7 @@ test('B', () => {
   expect(reverseString2('abc')).toBe('cba');
 });
 
+// eslint-disable-next-line no-extend-native
 Array.prototype.average = function() {
   return this.reduce((x, y) => x + y, 0) / this.length;
 };
@@ -80,6 +81,45 @@ const b = apiAnswer
 
 test('H', () => {
   expect(b).toEqual([{city: 1, name: 'lincoin'}, {city: 2, name: 'fufufu'}]);
-},
-);
+});
+
+const memorize4 = (fn) => {
+  const cache = {};
+  return (...args) => {
+    const strX = JSON.stringify(args);
+    return strX in cache ? cache[strX]:(cache[strX] = fn(...args));
+  };
+};
+
+test('K', () => {
+  expect(memorize4(JSON.stringify)([1])).toBe('[1]');
+});
+
+
+const once2 = (func) => {
+  let done = false;
+  let result;
+  return (...args) => {
+    if (!done) {
+      done = true;
+      result = func(...args);
+    }
+    return result;
+  };
+};
+
+test('Q', () => {
+  expect(once2(JSON.stringify)(1)).toBe('1');
+});
+
+
+test('R', () => {
+  expect(['1', '2', '3'].map(parseInt)).toEqual([1, NaN, NaN]);
+});
+
+test('P', () => {
+  const unary = (fn) => (...args) => fn(args[0]);
+  expect(['1', '2', '3'].map(unary(parseInt))).toEqual([1, 2, 3]);
+});
+
 
